@@ -17,8 +17,11 @@
     body {
       background: #fffcf3;
       display: flex;
+      margin: 0;
       flex-direction: column;
       align-items: center;
+      width: 100vw;
+      overflow-x: hidden;
       min-height: 100vh;
       justify-content: center;
       color: #8e513f;
@@ -29,25 +32,37 @@
     }
     .main-section {
       margin-top: -100px;
+      width: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
     }
     .image-section {
-      width: 350px;
-      height: 500px;
-      margin: 20px;
-      background: #e2cdc5;
+      margin: 0;
+    }
+    .image-section img {
+      width: 450px;
+      margin-top: -150px;
+      margin-bottom: -5px;
+    }
+    .lettering-section {
+      display: block;
+      width: 100vw;
+      margin-bottom: 30px;
+      background: #8e513f;
     }
     .title {
+      color: #f6d6a5;
       font-family: 'Great Vibes', cursive;
       font-size: 80px;
-      text-shadow: 2px 2px #e6c6bb;
+      text-align: center;
+      text-shadow: 2px 2px #713a29;
     }
     .weds {
       font-size: 50px;
       display: block;
       text-shadow: none;
-      margin: -8px;
+      margin: -8px 0;
       text-align: center;
     }
     .details-section {
@@ -95,7 +110,14 @@
     }
     @media (max-width: 768px) {
       .title {
-        font-size: 60px;
+        font-size: 50px;
+      }
+      .weds {
+        font-size: 35px;
+      }
+      .image-section img {
+        margin-top: -100px;
+        width: 80vw;
       }
       .main-section {
         margin-top: 0px;
@@ -103,10 +125,10 @@
       }
       .details-section {
         flex-direction: column;
-        margin: 20px;
+        margin: 0px;
       }
       .event-section {
-        margin-top: 30px;
+        margin-top: 20px;
       }
     }
   </style>
@@ -116,6 +138,7 @@
 <body>
   <section class="main-section pane">
     <section class="image-section">
+      <img src="we.svg" alt="Nanditha & Aarjith">
     </section>
     <section class="lettering-section">
       <h1 class="title">
