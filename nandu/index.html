@@ -15,7 +15,9 @@
       margin: 0;
     }
     body {
-      background: #fffcf3;
+      background: #fdf8e9;
+      background: -webkit-radial-gradient(center, ellipse cover, #fdf8e9 0%, #fbf1d2 100%); /* safari5.1+,chrome10+ */
+      background: radial-gradient(ellipse at center, #fdf8e9 0%, #fbf1d2 100%); /* w3c */      /*background: #fffcf3;*/
       display: flex;
       margin: 0;
       flex-direction: column;
@@ -24,14 +26,30 @@
       overflow-x: hidden;
       min-height: 100vh;
       justify-content: center;
-      color: #8e513f;
+      color: #b16e2c;
       font-family: 'Quicksand', sans-serif;
     }
-    .details-section {
-      margin: 0 50px;
+    .top-corner-img {
+      width: 250px;
+      position: absolute;
+      top: 0;
+    }
+    .bottom-corner-img {
+      width: 200px;
+      position: absolute;
+      bottom: 0;
+    }
+    .left-corner {
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      left: 0;
+    }
+    .right-corner {
+      right: 0;
     }
     .main-section {
-      margin-top: -100px;
+      margin-top: 20px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -39,150 +57,230 @@
     }
     .image-section {
       margin: 0;
+      width: 100vw;
+      text-align: center;
+      background: url(cover-frame.svg);
+      background-size: 600px;
+      background-repeat: no-repeat;
+      background-position: center -180px;
     }
     .image-section img {
-      width: 450px;
-      margin-top: -150px;
+      width: 420px;
       margin-bottom: -5px;
     }
     .lettering-section {
       display: block;
       width: 100vw;
-      margin-bottom: 30px;
-      background: #8e513f;
+      margin-bottom: 10px;
+    }
+    .title:before {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 3px;
+      top: 0;
+      left: 20%;
+      background-color: #e0b278;
+      border-radius: 4px;
     }
     .title {
-      color: #f6d6a5;
+      color: #e0b278;
       font-family: 'Great Vibes', cursive;
-      font-size: 80px;
+      font-size: 75px;
       text-align: center;
-      text-shadow: 2px 2px #713a29;
+      position: relative;
+      padding-top: 10px;
+      padding-bottom: 8px;
+      text-shadow: 1px 1px #8c5c39;
+    }
+    .title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      bottom: 0;
+      left: 25%;
+      background-color: #e0b278;
+      border-radius: 4px;
+    }
+    .title-border {
+      width: 450px;
+      display: inherit;
+      margin: -5px auto 0;
     }
     .weds {
       font-size: 50px;
-      display: block;
       text-shadow: none;
       margin: -8px 0;
       text-align: center;
     }
-    .details-section {
-      display: flex;
-    }
-    .event-section {
-      margin: 10px 20px;
-      display: flex;
-    }
-    .event {
-      font-size: 18px;
-      font-weight: bolder;
-    }
-    .event-date {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .date {
-      font-size: 35px;
-      font-weight: bolder;
-      margin-bottom: -8px;
-    }
-    .month {
-      font-weight: bolder;
-      font-size: 20px;
-    }
-    .year {
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
-    .venue-title {
-      font-size: 24px;
-      font-family: 'Cinzel Decorative', cursive;
-    }
     .location {
-      color: #b38575;
+      opacity: 0.8;
+      display: inline-block;
+      margin-top: -5px;
+      color: #b16e2c;
     }
     .map-icon {
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       margin-right: -2px;
+      opacity: 0.8;
     }
-    @media (max-width: 768px) {
+    .details-section {
+      text-align: center;
+      font-size: 1em;
+    }
+    .event-section {
+      animation: .6s ease 0s 1 slideInFromBottom;
+      animation-delay: 1s;
+      animation-fill-mode: both;
+    }
+    .event-section.event-reception {
+      margin-top: 18px;
+      animation-delay: 1.4s;
+    }
+    .details-section p {
+      margin-top: 5px;
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+    p.cursive {
+      font-family: 'Great Vibes';
+      font-size: 2em;
+    }
+    p.venue-title {
+      font-size: 1.5em;
+      margin-bottom: 2px;
+      font-family: 'Cinzel Decorative', cursive;
+    }
+    @media (max-width: 767px) {
+      .top-corner-img {
+        width: 120px;
+      }
+      .bottom-corner-img {
+        display: none;
+      }
       .title {
-        font-size: 50px;
+        font-size: 45px;
+      }
+      .title:before {
+        width: 80vw;
+        left: 10vw;
+      }
+      .title:after {
+        width: 60vw;
+        left: 20vw;
+      }
+      .title-border {
+        width: 60%;
+        max-width: 300px;
       }
       .weds {
-        font-size: 35px;
+        font-size: 32px;
+      }
+      .image-section {
+        background-size: 460px;
       }
       .image-section img {
-        margin-top: -100px;
-        width: 80vw;
+        margin-top: -20px;
+        width: 62vw;
+        max-width: 360px;
       }
       .main-section {
-        margin-top: 0px;
+        margin-top: 20px;
         flex-direction: column;
       }
       .details-section {
-        flex-direction: column;
-        margin: 0px;
+        text-align: center;
+        font-size: .9em;
+        padding: 0 20px;
       }
       .event-section {
         margin-top: 20px;
       }
+    }
+    @media (max-width: 480px) {
+      .details-section {
+        font-size: .75em;
+      }
+    }
+    @media (max-width: 320px) {
+      .top-corner-img {
+        display: none;
+      }
+    }
+    @keyframes slideInFromBottom {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes reveal {
+      0% {
+        max-height: 0;
+      }
+      100% {
+        max-height: 500px;
+      }
+    }
+    .details-section {
+      overflow: hidden;
+      animation: .8s ease 0s 1 reveal;
+      animation-delay: 1s;
+      animation-fill-mode: both;
     }
   </style>
 
 </head>
 
 <body>
+  <section class="bg-section">
+    <img class="top-corner-img left-corner" src="top-flourish.svg" alt="">
+    <img class="top-corner-img right-corner" src="top-flourish.svg" alt="">
+    <img class="bottom-corner-img left-corner" src="bottom-flourish.svg" alt="">
+    <img class="bottom-corner-img right-corner" src="bottom-flourish.svg" alt="">
+  </section>
   <section class="main-section pane">
     <section class="image-section">
       <img src="we.svg" alt="Nanditha & Aarjith">
     </section>
     <section class="lettering-section">
       <h1 class="title">
-        <span>Aarjith</span>
-        <span class="weds">weds</span>
         <span>Nanditha</span>
+        <span class="weds">&</span>
+        <span>Aarjith</span>
       </h1>
+      <img class="title-border" src="bottom.svg" alt="">
     </section>
   </section>
 
   <section class="details-section pane">
-    <section class="event-section wedding-section">
-      <div class="event-date">
-        <span class="date">31</span>
-        <span class="month">Aug</span>
-        <span class="year">2017</span>
-      </div>
-      <div class="event-details">
-        <h2 class="event">Wedding</h2>
-        <h2 class="venue-title">Sree Parvathy Mandapam</h2>
-        <h4 class="location">
-          <span class="map-icon" style="background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOGU1MTNmIiB4bWxuczp4PSJodHRwOi8vbnMuYWRvYmUuY29tL0V4dGVuc2liaWxpdHkvMS4wLyIgeG1sbnM6aT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZUlsbHVzdHJhdG9yLzEwLjAvIiB4bWxuczpncmFwaD0iaHR0cDovL25zLmFkb2JlLmNvbS9HcmFwaHMvMS4wLyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTk0OSA5NTEgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAtOTQ5IDk1MSAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCByZXF1aXJlZEV4dGVuc2lvbnM9Imh0dHA6Ly9ucy5hZG9iZS5jb20vQWRvYmVJbGx1c3RyYXRvci8xMC4wLyIgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxnIGk6ZXh0cmFuZW91cz0ic2VsZiI+PGc+PHBhdGggZD0iTS04NzAuMSw5NjkuOGMtOC4xLTE2LTI3LjUtMjIuNC00My41LTE0LjRjLTE2LDguMS0yMi4yLDI4LjItMTQuNCw0My41YzcuOCwxNS4zLDI0LjcsNDguNCwyNC43LDQ4LjQgICAgIGMxLjcsMy41LDYuOCwzLjUsOC41LDBjMCwwLDIwLjEtMzkuMiwyNC43LTQ4LjRDLTg2NS41LDk4OS44LTg2NS40LDk3OS4zLTg3MC4xLDk2OS44eiBNLTg5OSwxMDAxLjNjLTkuMywwLTE2LjktNy42LTE2LjktMTYuOSAgICAgYzAtOS4zLDcuNS0xNi45LDE2LjktMTYuOWM5LjMsMCwxNi45LDcuNiwxNi45LDE2LjlDLTg4Mi4xLDk5My43LTg4OS43LDEwMDEuMy04OTksMTAwMS4zeiIvPjwvZz48L2c+PC9zd2l0Y2g+PC9zdmc+)"></span>
-          <a class="location" href="https://www.google.com/maps/place/Sree+Parvathy+Mandapam+A%2Fc+Hall/@10.7731805,76.6761024,15z" target="_blank">ChandraNagar, Palakkad</a>
-        </h4>
-      </div>
-    </section>
-    <section class="event-section reception-section">
-      <div class="event-date">
-        <span class="date">01</span>
-        <span class="month">Sep</span>
-        <span class="year">2017</span>
-      </div>
-      <div class="event-details">
-        <h2 class="event">Reception</h2>
-        <h2 class="venue-title">Gloria Palace</h2>
-        <h4 class="location">
-          <span class="map-icon" style="background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOGU1MTNmIiB4bWxuczp4PSJodHRwOi8vbnMuYWRvYmUuY29tL0V4dGVuc2liaWxpdHkvMS4wLyIgeG1sbnM6aT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZUlsbHVzdHJhdG9yLzEwLjAvIiB4bWxuczpncmFwaD0iaHR0cDovL25zLmFkb2JlLmNvbS9HcmFwaHMvMS4wLyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTk0OSA5NTEgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAtOTQ5IDk1MSAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCByZXF1aXJlZEV4dGVuc2lvbnM9Imh0dHA6Ly9ucy5hZG9iZS5jb20vQWRvYmVJbGx1c3RyYXRvci8xMC4wLyIgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxnIGk6ZXh0cmFuZW91cz0ic2VsZiI+PGc+PHBhdGggZD0iTS04NzAuMSw5NjkuOGMtOC4xLTE2LTI3LjUtMjIuNC00My41LTE0LjRjLTE2LDguMS0yMi4yLDI4LjItMTQuNCw0My41YzcuOCwxNS4zLDI0LjcsNDguNCwyNC43LDQ4LjQgICAgIGMxLjcsMy41LDYuOCwzLjUsOC41LDBjMCwwLDIwLjEtMzkuMiwyNC43LTQ4LjRDLTg2NS41LDk4OS44LTg2NS40LDk3OS4zLTg3MC4xLDk2OS44eiBNLTg5OSwxMDAxLjNjLTkuMywwLTE2LjktNy42LTE2LjktMTYuOSAgICAgYzAtOS4zLDcuNS0xNi45LDE2LjktMTYuOWM5LjMsMCwxNi45LDcuNiwxNi45LDE2LjlDLTg4Mi4xLDk5My43LTg4OS43LDEwMDEuMy04OTksMTAwMS4zeiIvPjwvZz48L2c+PC9zd2l0Y2g+PC9zdmc+)"></span>
-          <a class="location" href="https://www.google.com/maps/place/Gloria+Palace/@10.5911029,76.0606195,17z" target="_blank">Brahmakulam, Guruvayur</a>
-        </h4>
-      </div>
-    </section>
+    <div class="event-section event-wedding">
+      <p class="cursive">Cordially invite You to join us for our Wedding</p>
+      <p>ON THURSDAY, <strong>31ST AUGUST 2017</strong> AT 11:00AM</p>
+      <p class="venue-title">Sree Parvathy Mandapam</p>
+      <p class="location">
+        <span class="map-icon" style="background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOGU1MTNmIiB4bWxuczp4PSJodHRwOi8vbnMuYWRvYmUuY29tL0V4dGVuc2liaWxpdHkvMS4wLyIgeG1sbnM6aT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZUlsbHVzdHJhdG9yLzEwLjAvIiB4bWxuczpncmFwaD0iaHR0cDovL25zLmFkb2JlLmNvbS9HcmFwaHMvMS4wLyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTk0OSA5NTEgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAtOTQ5IDk1MSAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCByZXF1aXJlZEV4dGVuc2lvbnM9Imh0dHA6Ly9ucy5hZG9iZS5jb20vQWRvYmVJbGx1c3RyYXRvci8xMC4wLyIgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxnIGk6ZXh0cmFuZW91cz0ic2VsZiI+PGc+PHBhdGggZD0iTS04NzAuMSw5NjkuOGMtOC4xLTE2LTI3LjUtMjIuNC00My41LTE0LjRjLTE2LDguMS0yMi4yLDI4LjItMTQuNCw0My41YzcuOCwxNS4zLDI0LjcsNDguNCwyNC43LDQ4LjQgICAgIGMxLjcsMy41LDYuOCwzLjUsOC41LDBjMCwwLDIwLjEtMzkuMiwyNC43LTQ4LjRDLTg2NS41LDk4OS44LTg2NS40LDk3OS4zLTg3MC4xLDk2OS44eiBNLTg5OSwxMDAxLjNjLTkuMywwLTE2LjktNy42LTE2LjktMTYuOSAgICAgYzAtOS4zLDcuNS0xNi45LDE2LjktMTYuOWM5LjMsMCwxNi45LDcuNiwxNi45LDE2LjlDLTg4Mi4xLDk5My43LTg4OS43LDEwMDEuMy04OTksMTAwMS4zeiIvPjwvZz48L2c+PC9zd2l0Y2g+PC9zdmc+)"></span>
+        <a class="location" href="https://www.google.com/maps/place/Sree+Parvathy+Mandapam+A%2Fc+Hall/@10.7731805,76.6761024,15z" target="_blank">ChandraNagar, Palakkad</a>
+      </p>
+    </div>
+
+    <div class="event-section event-reception">
+      <p class="cursive">Followed by the Reception</p>
+      <p>ON FRIDAY, <strong>1ST SEPTEMBER 2017</strong> FROM 4:30PM</p>
+      <p class="venue-title">Gloria Palace</p>
+      <p class="location">
+        <span class="map-icon" style="background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjOGU1MTNmIiB4bWxuczp4PSJodHRwOi8vbnMuYWRvYmUuY29tL0V4dGVuc2liaWxpdHkvMS4wLyIgeG1sbnM6aT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZUlsbHVzdHJhdG9yLzEwLjAvIiB4bWxuczpncmFwaD0iaHR0cDovL25zLmFkb2JlLmNvbS9HcmFwaHMvMS4wLyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTk0OSA5NTEgMTAwIDEwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAtOTQ5IDk1MSAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN3aXRjaD48Zm9yZWlnbk9iamVjdCByZXF1aXJlZEV4dGVuc2lvbnM9Imh0dHA6Ly9ucy5hZG9iZS5jb20vQWRvYmVJbGx1c3RyYXRvci8xMC4wLyIgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxnIGk6ZXh0cmFuZW91cz0ic2VsZiI+PGc+PHBhdGggZD0iTS04NzAuMSw5NjkuOGMtOC4xLTE2LTI3LjUtMjIuNC00My41LTE0LjRjLTE2LDguMS0yMi4yLDI4LjItMTQuNCw0My41YzcuOCwxNS4zLDI0LjcsNDguNCwyNC43LDQ4LjQgICAgIGMxLjcsMy41LDYuOCwzLjUsOC41LDBjMCwwLDIwLjEtMzkuMiwyNC43LTQ4LjRDLTg2NS41LDk4OS44LTg2NS40LDk3OS4zLTg3MC4xLDk2OS44eiBNLTg5OSwxMDAxLjNjLTkuMywwLTE2LjktNy42LTE2LjktMTYuOSAgICAgYzAtOS4zLDcuNS0xNi45LDE2LjktMTYuOWM5LjMsMCwxNi45LDcuNiwxNi45LDE2LjlDLTg4Mi4xLDk5My43LTg4OS43LDEwMDEuMy04OTksMTAwMS4zeiIvPjwvZz48L2c+PC9zd2l0Y2g+PC9zdmc+)"></span>
+        <a class="location" href="https://www.google.com/maps/place/Gloria+Palace/@10.5911029,76.0606195,17z" target="_blank">Brahmakulam, Guruvayur</a>
+      </p>
+    </div>
   </section>
-  <!-- <h1>Aarjith Weds Nanditha</h1>
-  <h2>And You're invited!</h2> -->
+
   <!-- <script src="js/scripts.js"></script> -->
 </body>
 </html>
