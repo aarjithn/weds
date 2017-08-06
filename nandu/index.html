@@ -16,8 +16,8 @@
     }
     body {
       background: #fdf8e9;
-      background: -webkit-radial-gradient(center, ellipse cover, #fdf8e9 0%, #fbf1d2 100%); /* safari5.1+,chrome10+ */
-      background: radial-gradient(ellipse at center, #fdf8e9 0%, #fbf1d2 100%); /* w3c */      /*background: #fffcf3;*/
+      background: -webkit-radial-gradient(center, ellipse cover, #fdf8e9 0%, #ecd39f 100%); /* safari5.1+,chrome10+ */
+      background: radial-gradient(ellipse at center, #fdf8e9 0%, #ecd39f 100%); /* w3c */      /*background: #fffcf3;*/
       display: flex;
       margin: 0;
       flex-direction: column;
@@ -26,7 +26,7 @@
       overflow-x: hidden;
       min-height: 100vh;
       justify-content: center;
-      color: #b16e2c;
+      color: #a05c19;
       font-family: 'Quicksand', sans-serif;
     }
     .top-corner-img {
@@ -36,7 +36,7 @@
     }
     .bottom-corner-img {
       width: 200px;
-      position: absolute;
+      position: fixed;
       bottom: 0;
     }
     .left-corner {
@@ -65,7 +65,7 @@
       background-position: center -180px;
     }
     .image-section img {
-      width: 420px;
+      width: 380px;
       margin-bottom: -5px;
     }
     .lettering-section {
@@ -84,9 +84,10 @@
       border-radius: 4px;
     }
     .title {
-      color: #e0b278;
+      color: #d8914a;
       font-family: 'Great Vibes', cursive;
       font-size: 75px;
+      font-weight: 400;
       text-align: center;
       position: relative;
       padding-top: 10px;
@@ -115,10 +116,10 @@
       text-align: center;
     }
     .location {
-      opacity: 0.8;
+      opacity: 0.9;
       display: inline-block;
       margin-top: -5px;
-      color: #b16e2c;
+      color: #9a5a1b;
     }
     .map-icon {
       display: inline-block;
@@ -139,6 +140,7 @@
     .event-section.event-reception {
       margin-top: 18px;
       animation-delay: 1.4s;
+      padding-bottom: 50px;
     }
     .details-section p {
       margin-top: 5px;
@@ -195,9 +197,6 @@
         text-align: center;
         font-size: .9em;
         padding: 0 20px;
-      }
-      .event-section {
-        margin-top: 20px;
       }
     }
     @media (max-width: 480px) {
